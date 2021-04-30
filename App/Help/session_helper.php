@@ -1,5 +1,18 @@
 <?php
+/**
+ * This file must be included in the "Bootstrap.php" 
+ * inorder to user the following Sesstion methods.
+ */
+
 session_start();
+
+/**
+ * This function can be used to display a Success message.
+ * @param string $name
+ * @param string $message
+ * @param string $class
+ * @return void
+ */
 function flash_msg($name = "", $message = "", $class = "alert alert-success")
 {
   if (!empty($name)) {
@@ -26,7 +39,12 @@ function flash_msg($name = "", $message = "", $class = "alert alert-success")
     }
   }
 }
-//Check if User is loged in or not
+
+/**
+ * Function to Check if the User has Logged In or not
+ * Returns True if User_ID is  Set in the Session else 
+ * will return False
+ */
 function isLoggedIn()
 {
   if (isset($_SESSION["user_ID"])) {
@@ -35,15 +53,5 @@ function isLoggedIn()
     return false;
   }
 }
-// Check if Logged in as Restraunt
-function isLoggedInAsRestraunt()
-{
-  if (isset($_SESSION["user_TYPE"])) {
-    if ($_SESSION["user_TYPE"] == "restraunt") {
-      return true;
-    }
-  } else {
-    return false;
-  }
-}
+
 ?>

@@ -1,11 +1,20 @@
 <?php
-// DB PARAMS
-define("DB_HOST", "localhost");
-define("DB_PASSWORD", "bitchfuck5");
-define("DB_USER", "root");
-define("DB_NAME", "foodshala");
-
+/**
+ * Change the following 
+ * DB_HOST-> <YOUR DATABASE HOST>
+ * DB_PASSWORD-> <PASSWORD IF THERE IS ANY TO ACCESS YOUR DATABASE
+ * DB_USER-> <USER OF THE DATABASE>
+ * DB_NAME-> <NAME OF YOUR DATABASE>
+ * APPLICATION_ROOT-> <SETS AUTOMATICALLY TO THE PARENTS PARENTS DIRECTORY OF THE FILE>
+ * URL_ROOT-> <URL OF YOUR SITE>
+ * SITE_NAME-> <NAME OF YOUR SITE>
+ */
+define("DB_HOST", "localhost"); // Default if using localhost
+define("DB_PASSWORD", "ENTER YOUR PASSWORD");
+define("DB_USER", "root"); //Default value if using a localhost
+define("DB_NAME", "DATABASE_NAME");
 define("APPLICATION_ROOT", dirname(dirname(__FILE__)));
-define("URL_ROOT", "http://localhost/FoodShala");
-define("SITE_NAME", "FoodShala");
+define("URL_ROOT", "SITE_URL");
+define("SITE_NAME", "NAME OF THE SITE");
+define("SMTP_PORT_NO", "ENTER YOUR SMTP PORT NUMBER FOR MAILING POURPOSE");
 ?>

@@ -1,13 +1,13 @@
 <?php
-
-//*Main Application Core
-//*Create and Load Core Controller
-//*URL Format - controller/method/params
-
-class Core
+/*
+ *Main Application Core
+ *Create URL and Loading of the Core Controller
+ *URL Format - controller/method/params
+*/
+ class Core
 {
   protected $currentMethod = "index";
-  protected $currentController = "pages";
+  protected $currentController = "pages"; //Can be Changed By the User
   protected $params = [];
 
   //CONSTRUCTOR
@@ -42,6 +42,7 @@ class Core
       $this->params
     );
   }
+  
   public function getURL()
   {
     if (isset($_GET['url'])) {

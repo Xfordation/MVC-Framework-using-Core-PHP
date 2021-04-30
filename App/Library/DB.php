@@ -5,8 +5,9 @@
  * Create prepared statements
  * Bind values
  * Return rows and results
+ * This class must be Extended By all the Models in order to Interact with the DataBase
  */
-class DB
+ class DB
 {
   private $host = DB_HOST;
   private $user = DB_USER;
@@ -35,13 +36,26 @@ class DB
     }
   }
 
-  // Prepare statement with query
+  /**
+   * Function To Prepare a SQL Statement.
+   *
+   * @param [type] $sql
+   * @return void
+   */
   public function query($sql)
   {
     $this->stmt = $this->dbh->prepare($sql);
   }
 
-  // Bind values
+  /**
+   * Function to bindValues must be invoked after Preparing
+   * a Statment
+   *
+   * @param [type] $param
+   * @param [type] $value
+   * @param [type] $type
+   * @return void
+   */
   public function bind($param, $value, $type = null)
   {
     if (is_null($type)) {
@@ -63,27 +77,44 @@ class DB
     $this->stmt->bindValue($param, $value, $type);
   }
 
-  // Execute the prepared statement
+  /**
+   * Function to Execute a SQL Statement 
+   * Returns True on Success and False on Failure. 
+   * @return void
+   */
   public function execute()
   {
     return $this->stmt->execute();
   }
 
-  // Get result set as array of objects
+  /**
+   * Function to get result set an Array of Objects from the Current DataBase
+   *
+   * @return void
+   */ 
   public function resultSet()
   {
     $this->execute();
     return $this->stmt->fetchAll(PDO::FETCH_OBJ);
   }
 
-  // Get single record as object
+  /**
+   * Function to get a Single record as an Object from the Current DataBase
+   *
+   * @return void
+   */
+ 
   public function single()
   {
     $this->execute();
     return $this->stmt->fetch(PDO::FETCH_OBJ);
   }
 
-  // Get row count
+  /**
+   * Function to get number of rows in the Current DataBase
+   *
+   * @return void
+   */
   public function rowCount()
   {
     return $this->stmt->rowCount();

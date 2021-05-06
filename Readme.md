@@ -36,7 +36,8 @@ _This framework can be used to develop a simple blog site to a complex Web Appli
 4. JavaScript
 5. PHP
 6. SQL and Relational Databases
-7. PDO
+7. Object Orinted Programming
+8. PDO
 
 ## **Getting Started**
 
